@@ -1,2 +1,2 @@
-# money-converter
-An open source artifact that consults differents API's for exchange rates
+# money-echange-rater
+An open source artifact that consults different API's for exchange rates
