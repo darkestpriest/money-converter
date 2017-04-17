@@ -8,6 +8,7 @@ import org.darkestapp.money_exchange_rater.interfaces.CurrencyData;
 public enum PublicCurrencyCode implements CurrencyData {
 
     ARS ("ARS", "Peso Argentino"),
+    BTC ("BTC", "Bitcoin"),
     IOP ("IOP", "Internet of People"),
     USD ("USD", "American Dollar");
 

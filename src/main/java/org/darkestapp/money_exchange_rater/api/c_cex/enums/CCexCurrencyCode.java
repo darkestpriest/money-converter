@@ -8,6 +8,8 @@ import org.darkestapp.money_exchange_rater.interfaces.CurrencyCode;
  */
 public enum CCexCurrencyCode implements CurrencyCode {
 
+    ARS (PublicCurrencyCode.ARS),
+    BTC (PublicCurrencyCode.BTC),
     USD (PublicCurrencyCode.USD);
 
     private PublicCurrencyCode currency;
@@ -19,5 +21,9 @@ public enum CCexCurrencyCode implements CurrencyCode {
 
     public String getCode() {
         return this.currency.getCode();
+    }
+
+    public String getLowerCaseCode () {
+        return this.currency.getCode().toLowerCase();
     }
 }
