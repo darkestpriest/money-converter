@@ -26,4 +26,10 @@ public interface ExchangeRaterApi <C extends CurrencyPair, O extends ApiObject> 
      * @return
      */
     O getApiObject(final C currencyPair) throws MoneyExchangeRaterException;
+
+    /**
+     * Returns an ApiId, useful to show the Api id or the Api friendly name.
+     * @return
+     */
+    ApiId getApiId();
 }

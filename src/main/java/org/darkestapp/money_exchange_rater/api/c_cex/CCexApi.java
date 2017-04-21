@@ -18,6 +18,8 @@ import java.util.List;
 public class CCexApi implements ExchangeRaterApi<CCexCurrencyPair, CCexObject> {
 
     private static final String CONTEXT = CCexApi.class.getSimpleName();
+    private static final String API_SHORT_NAME = "CCEX";
+    private static final String API_FRIENDLY_NAME = "C-Cex";
 
     @Override
     public boolean isCurrencyPairAllowed(final CCexCurrencyPair currencyPair)
@@ -58,5 +60,11 @@ public class CCexApi implements ExchangeRaterApi<CCexCurrencyPair, CCexObject> {
                     CONTEXT,
                     "A generic exception has occurred getting the exchange rate from public API");
         }
+    }
+
+    @Override
+    public ApiId getApiId() {
+
+        return new ApiId(API_SHORT_NAME, API_FRIENDLY_NAME);
     }
 }
