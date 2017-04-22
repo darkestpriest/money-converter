@@ -8,4 +8,6 @@ public interface CurrencyPair<C extends CurrencyCode> {
     C getCurrencyFrom();
 
     C getCurrencyTo();
+
+    String getCurrenciesCodes();
 }

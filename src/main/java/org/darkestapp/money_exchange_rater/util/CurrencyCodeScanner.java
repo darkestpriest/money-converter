@@ -1,11 +1,8 @@
 package org.darkestapp.money_exchange_rater.util;
 
-import org.darkestapp.money_exchange_rater.interfaces.Api;
-import org.darkestapp.money_exchange_rater.interfaces.CurrencyCode;
 import org.darkestapp.money_exchange_rater.interfaces.MoneyExchangeRaterException;
 import org.darkestapp.money_exchange_rater.interfaces.Supported;
 import org.reflections.ReflectionUtils;
-import org.reflections.Reflections;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;

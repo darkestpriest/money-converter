@@ -10,7 +10,8 @@ public enum PublicCurrencyCode implements CurrencyData {
     ARS ("ARS", "Peso Argentino"),
     BTC ("BTC", "Bitcoin"),
     IOP ("IOP", "Internet of People"),
-    USD ("USD", "American Dollar");
+    USD ("USD", "American Dollar"),
+    USDT ("USDT", "American Dollar");
 
     private String friendlyName;
     private String code;

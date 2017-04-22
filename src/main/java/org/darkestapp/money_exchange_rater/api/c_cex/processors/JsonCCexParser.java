@@ -48,7 +48,5 @@ public class JsonCCexParser extends JsonParser<CCexObject, CCexCurrencyPair> {
         } catch (Exception e) {
             throw new ParseException(e, CONTEXT, "An error has occurred parsing a json object");
         }
-
-
     }
 }

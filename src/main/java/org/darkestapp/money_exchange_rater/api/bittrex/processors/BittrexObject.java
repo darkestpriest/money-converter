@@ -1,30 +1,32 @@
-package org.darkestapp.money_exchange_rater.api.c_cex.processors;
+package org.darkestapp.money_exchange_rater.api.bittrex.processors;
 
-import org.darkestapp.money_exchange_rater.api.c_cex.util.CCexCurrencyPair;
+import org.darkestapp.money_exchange_rater.api.bittrex.util.BittrexCurrencyPair;
 import org.darkestapp.money_exchange_rater.interfaces.ApiObject;
 import org.darkestapp.money_exchange_rater.interfaces.CurrencyPair;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
-import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static org.darkestapp.money_exchange_rater.api.c_cex.util.CCexConstants.MARKET_PRICES_TIMESTAMP_MULTIPLIER;
+import static org.darkestapp.money_exchange_rater.api.bittrex.util.BittrexConstants.TIMESTAMP_DATE_FORMAT;
 
 /**
- * Created by Manuel Perez P. (darkpriestrelative@gmail.com) on 16/04/17.
+ * Created by Manuel Perez P. (darkpriestrelative@gmail.com) on 22/04/17.
  */
-public class CCexObject implements ApiObject {
-    private final CCexCurrencyPair currencyPair;
+public class BittrexObject implements ApiObject {
+
+    private final BittrexCurrencyPair currencyPair;
     private final BigDecimal buyPrice;
     private final BigDecimal sellPrice;
     private final Date requestTime;
 
-    public CCexObject(
-            final CCexCurrencyPair currencyPair,
+    public BittrexObject(
+            final BittrexCurrencyPair currencyPair,
             final BigDecimal buyPrice,
             final BigDecimal sellPrice,
-            final BigInteger timestamp) {
+            final String timestamp) {
         this.currencyPair = currencyPair;
         this.buyPrice = buyPrice;
         this.sellPrice = sellPrice;
@@ -50,16 +52,19 @@ public class CCexObject implements ApiObject {
         return requestTime;
     }
 
-    private Date parseTimestamp(BigInteger timestamp) {
+    private Date parseTimestamp(String timestamp) {
 
-        Timestamp stamp = new Timestamp(
-                timestamp.longValue() * MARKET_PRICES_TIMESTAMP_MULTIPLIER);
-        return new Date(stamp.getTime());
+        DateFormat dateFormat = new SimpleDateFormat(TIMESTAMP_DATE_FORMAT);
+        try {
+            return dateFormat.parse(timestamp);
+        } catch (ParseException e) {
+            return new Date();
+        }
     }
 
     @Override
     public String toString() {
-        return "CCexObject{" +
+        return "BittrexObject{" +
                 "currencyPair=" + currencyPair +
                 ", buyPrice=" + buyPrice +
                 ", sellPrice=" + sellPrice +
