@@ -26,6 +26,8 @@ public abstract class JsonParser<A extends ApiObject, C extends CurrencyPair> {
         this.CONTEXT = context.getSimpleName();
     }
 
+    public abstract A getApiObject(C currencyPair) throws MoneyExchangeRaterException;
+
     public abstract A getApiObject(String url, C currencyPair) throws MoneyExchangeRaterException;
 
     protected JSONObject getRequest(String stringURL) throws MoneyExchangeRaterException {

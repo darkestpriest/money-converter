@@ -5,7 +5,7 @@ import org.darkestapp.money_exchange_rater.interfaces.MoneyExchangeRaterExceptio
 import org.junit.Test;
 
 import static org.darkestapp.money_exchange_rater.api.bittrex.enums.BittrexCurrencyCode.BTC;
-import static org.darkestapp.money_exchange_rater.api.bittrex.enums.BittrexCurrencyCode.USD;
+import static org.darkestapp.money_exchange_rater.api.bittrex.enums.BittrexCurrencyCode.USDT;
 import static org.hamcrest.number.OrderingComparison.greaterThan;
 import static org.junit.Assert.*;
 
@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 public class JsonBittrexParserTest {
 
     private JsonBittrexParser parser = new JsonBittrexParser(JsonBittrexParser.class);
-    private BittrexCurrencyPair validCurrencyPair = new BittrexCurrencyPair(USD, BTC);
+    private BittrexCurrencyPair validCurrencyPair = new BittrexCurrencyPair(USDT, BTC);
 
     @Test
     public void getDefaultApiObject() throws Exception {
@@ -32,7 +32,7 @@ public class JsonBittrexParserTest {
     @Test(expected = MoneyExchangeRaterException.class)
     public void getApiObject() throws Exception {
 
-        BittrexCurrencyPair invalidCurrencyPair = new BittrexCurrencyPair(BTC, USD);
+        BittrexCurrencyPair invalidCurrencyPair = new BittrexCurrencyPair(BTC, USDT);
         parser.getApiObject(invalidCurrencyPair);
     }
 

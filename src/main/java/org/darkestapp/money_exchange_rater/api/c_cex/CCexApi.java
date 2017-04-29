@@ -15,31 +15,15 @@ import java.util.List;
  * Created by Manuel Perez P. (darkpriestrelative@gmail.com) on 17/04/17.
  */
 @Api(enabled = true)
-public class CCexApi implements ExchangeRaterApi<CCexCurrencyPair, CCexObject> {
+public class CCexApi extends AbstractExchangeRaterApi<CCexCurrencyPair, CCexObject>
+        implements ExchangeRaterApi<CCexCurrencyPair, CCexObject> {
 
     private static final String CONTEXT = CCexApi.class.getSimpleName();
     private static final String API_SHORT_NAME = "CCEX";
     private static final String API_FRIENDLY_NAME = "C-Cex";
 
-    @Override
-    public boolean isCurrencyPairAllowed(final CCexCurrencyPair currencyPair)
-            throws MoneyExchangeRaterException {
-
-        if(currencyPair == null) {
-            throw new ParseException(CONTEXT, "Currency pair cannot be null");
-        }
-
-        List<String> supportedCodeList = CurrencyCodeScanner
-                .getSupportedCurrencyCodeList(
-                        CCexCurrencyCode.class,
-                        this.getClass());
-        if(!supportedCodeList.contains(currencyPair.getCurrencyFrom().getCode())) {
-            return false;
-        }
-        if(!supportedCodeList.contains(currencyPair.getCurrencyTo().getCode())) {
-            return false;
-        }
-        return true;
+    public CCexApi() {
+        super(CCexApi.class, CCexCurrencyCode.class);
     }
 
     @Override

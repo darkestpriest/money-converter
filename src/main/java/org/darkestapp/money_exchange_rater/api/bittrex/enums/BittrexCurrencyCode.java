@@ -9,12 +9,14 @@ import org.darkestapp.money_exchange_rater.interfaces.Supported;
  */
 public enum BittrexCurrencyCode implements CurrencyCode {
 
+    @Supported(value = false)
+    ARS (PublicCurrencyCode.ARS),
     @Supported
     BTC (PublicCurrencyCode.BTC),
     @Supported
     IOP (PublicCurrencyCode.IOP),
     @Supported
-    USD (PublicCurrencyCode.USDT);
+    USDT (PublicCurrencyCode.USDT);
 
     private PublicCurrencyCode currency;
 

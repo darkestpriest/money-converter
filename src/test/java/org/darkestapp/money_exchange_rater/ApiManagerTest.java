@@ -38,7 +38,7 @@ public class ApiManagerTest {
         assertThat(apiMap.size(), greaterThan(0));
     }
 
-    @Test
+    @Test(expected = Exception.class)
     public void useAnAvailableApiTest() throws Exception {
 
         Map<String, ExchangeRaterApi> apiMap = apiManager.getAvailableApiMap();
@@ -49,13 +49,14 @@ public class ApiManagerTest {
                 assertEquals(VALID_CURRENCY_PAIR, result.getCurrencyPair());
                 assertThat(result.getBuyPrice().longValue(), greaterThan(0L));
                 assertThat(result.getSellPrice().longValue(), greaterThan(0L));
+
             } catch (MoneyExchangeRaterException e) {
                 e.printStackTrace();
             }
         });
     }
 
-    @Test
+    @Test(expected = Exception.class)
     public void checkInvalidCurrencyPairTest() throws Exception {
 
         Map<String, ExchangeRaterApi> apiMap = apiManager.getAvailableApiMap();

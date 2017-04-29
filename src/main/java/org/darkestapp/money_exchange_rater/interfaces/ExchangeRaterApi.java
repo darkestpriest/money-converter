@@ -1,9 +1,5 @@
 package org.darkestapp.money_exchange_rater.interfaces;
 
-import org.darkestapp.money_exchange_rater.api.c_cex.exceptions.CCexApiException;
-
-import java.math.BigDecimal;
-
 /**
  * Created by Manuel Perez P. (darkpriestrelative@gmail.com) on 15/04/17.
  */
