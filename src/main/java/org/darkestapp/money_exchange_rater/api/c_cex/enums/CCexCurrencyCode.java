@@ -14,6 +14,14 @@ public enum CCexCurrencyCode implements CurrencyCode {
     @Supported
     BTC (PublicCurrencyCode.BTC),
     @Supported
+    DGC (PublicCurrencyCode.DOGE),
+    @Supported
+    ETH (PublicCurrencyCode.ETH),
+    @Supported
+    IOP (PublicCurrencyCode.IOP),
+    @Supported
+    LTC (PublicCurrencyCode.LTC),
+    @Supported
     USD (PublicCurrencyCode.USD);
 
     private PublicCurrencyCode currency;

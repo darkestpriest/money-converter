@@ -14,7 +14,13 @@ public enum BittrexCurrencyCode implements CurrencyCode {
     @Supported
     BTC (PublicCurrencyCode.BTC),
     @Supported
+    DGC (PublicCurrencyCode.DOGE),
+    @Supported
+    ETH (PublicCurrencyCode.ETH),
+    @Supported
     IOP (PublicCurrencyCode.IOP),
+    @Supported
+    LTC (PublicCurrencyCode.LTC),
     @Supported
     USDT (PublicCurrencyCode.USDT);
 
