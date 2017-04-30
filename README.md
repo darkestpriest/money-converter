@@ -11,5 +11,5 @@ With this library you can add new public api for currency exchange easily, just 
 
 at the beginning of your ExchangeRaterApi implementation and done, the ApiManager can scan the new api implementation.
 
-##How to include new supported currencies
+## How to include new supported currencies
 You can include a new currency adding a new element in ```PublicCurrencyCode``` enum, after that, any api can use this new currency within its implementation.
