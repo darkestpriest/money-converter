@@ -13,3 +13,23 @@ at the beginning of your ExchangeRaterApi implementation and done, the ApiManage
 
 ## How to include new supported currencies
 You can include a new currency adding a new element in ```PublicCurrencyCode``` enum, after that, any api can use this new currency within its implementation.
+
+## How to implement in your application
+Just create a new instance of ```ApiManager``` class, this class contains a method named:
+
+ ```Map<String, ExchangeRaterApi> getAvailableApiMap()```
+ 
+The method returns a map with all the supported api's, just select one ExchangeRaterApi from the retrieved map and use the method:  
+  
+```getApiObject(CurrencyPair currencyPair)```
+
+The ```currencyPair``` object must contains the currency to rate, for example:
+
+```CurrencyPair currencyPair =
+            new CurrencyPair(USD, BTC);
+   ApiObject result = ExchangeApi.getApiObject(currencyPair);
+   //To get buy price
+   result.getBuyPrice();
+   //To get sell price
+   result.getSellPrice();
+   ```
