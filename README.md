@@ -44,4 +44,5 @@ repositories {
     maven { 
         url "http://dl.bintray.com/darkestpriest/money-exchange-rater" 
         } 
-    }```
+    }
+```
