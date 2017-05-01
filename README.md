@@ -25,11 +25,13 @@ The method returns a map with all the supported api's, just select one ExchangeR
 
 The ```currencyPair``` object must contains the currency to rate, for example:
 
-```CurrencyPair currencyPair =
-            new CurrencyPair(USD, BTC);
-   ApiObject result = ExchangeApi.getApiObject(currencyPair);
-   //To get buy price
-   result.getBuyPrice();
-   //To get sell price
-   result.getSellPrice();
+```Java
+    CurrencyPair currencyPair = new CurrencyPair(USD, BTC);
+    ApiObject result = ExchangeApi.getApiObject(currencyPair);
+   
+    //To get buy price
+    result.getBuyPrice();
+   
+    //To get sell price
+    result.getSellPrice();
    ```
