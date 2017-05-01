@@ -35,3 +35,14 @@ The ```currencyPair``` object must contains the currency to rate, for example:
     //To get sell price
     result.getSellPrice();
    ```
+
+## How to include in your app.
+You can use gradle to include this library using the following lines:  
+  
+```Gradle
+repositories { 
+    maven { 
+        url "http://dl.bintray.com/darkestpriest/money-exchange-rater" 
+        } 
+    }
+    ```
