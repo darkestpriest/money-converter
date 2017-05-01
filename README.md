@@ -40,9 +40,14 @@ The ```currencyPair``` object must contains the currency to rate, for example:
 You can use gradle to include this library using the following lines:  
   
 ```Gradle
-repositories { 
-    maven { 
-        url "http://dl.bintray.com/darkestpriest/money-exchange-rater" 
-        } 
-    }
+    compile 'org.darkestapp.money-exchange-rater:money-exchange-rater:1.0.0'
+```
+For maven users, you can include in your pom file:
+```Maven
+<dependency>
+  <groupId>org.darkestapp.money-exchange-rater</groupId>
+  <artifactId>money-exchange-rater</artifactId>
+  <version>1.0.0</version>
+  <type>pom</type>
+</dependency>
 ```
