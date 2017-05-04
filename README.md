@@ -52,7 +52,7 @@ The ```currencyPair``` object must contains the currency to rate, for example:
    ```
 
 ## How to include in your app.
-You can use gradle to include this library using the following lines:  
+The artifactc is hosted in jcenter, you need to include jcenter in your repositories sources. If you are using gradle, to include this library using the following lines:  
   
 ```Gradle
     compile 'org.darkestapp.money-exchange-rater:money-exchange-rater:1.0.0'
