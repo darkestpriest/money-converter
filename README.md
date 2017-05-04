@@ -26,14 +26,29 @@ The method returns a map with all the supported api's, just select one ExchangeR
 The ```currencyPair``` object must contains the currency to rate, for example:
 
 ```Java
-    CurrencyPair currencyPair = new CurrencyPair(USD, BTC);
-    ApiObject result = ExchangeApi.getApiObject(currencyPair);
-   
-    //To get buy price
-    result.getBuyPrice();
-   
-    //To get sell price
-    result.getSellPrice();
+    public static void main(String[] args) {
+
+        try {
+            ApiManager manager = new ApiManager();
+            Map<String, ExchangeRaterApi> apiMap = manager.getAvailableApiMap();
+            CurrencyPair currencyPair = new BittrexCurrencyPair(USDT, BTC);
+            ExchangeRaterApi api;
+            for(Map.Entry<String, ExchangeRaterApi> entry : apiMap.entrySet()) {
+                api = entry.getValue();
+                if(api.getApiId().getShortName().equals("BITT")) {
+                    System.out.println("Checking Bittrex API:");
+                    
+                    //To get buy price
+                    System.out.println(result.getBuyPrice());
+                    
+                    //To get sell price
+                    System.out.println(result.getSellPrice());
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
    ```
 
 ## How to include in your app.
