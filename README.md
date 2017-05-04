@@ -39,10 +39,10 @@ The ```currencyPair``` object must contains the currency to rate, for example:
                     System.out.println("Checking Bittrex API:");
                     
                     //To get buy price
-                    System.out.println(result.getBuyPrice());
+                    System.out.println(api.getBuyPrice());
                     
                     //To get sell price
-                    System.out.println(result.getSellPrice());
+                    System.out.println(api.getSellPrice());
                 }
             }
         } catch (Exception e) {
