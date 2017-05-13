@@ -1,4 +1,4 @@
-package org.darkestapp.money_exchange_rater.interfaces;
+package org.darkestapp.money_exchange_rater.interfaces.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

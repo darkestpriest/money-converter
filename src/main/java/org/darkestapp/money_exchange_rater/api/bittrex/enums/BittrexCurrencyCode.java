@@ -2,7 +2,7 @@ package org.darkestapp.money_exchange_rater.api.bittrex.enums;
 
 import org.darkestapp.money_exchange_rater.enums.PublicCurrencyCode;
 import org.darkestapp.money_exchange_rater.interfaces.CurrencyCode;
-import org.darkestapp.money_exchange_rater.interfaces.Supported;
+import org.darkestapp.money_exchange_rater.interfaces.annotations.Supported;
 
 /**
  * Created by Manuel Perez P. (darkpriestrelative@gmail.com) on 22/04/17.

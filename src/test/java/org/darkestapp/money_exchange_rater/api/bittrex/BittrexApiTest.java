@@ -3,10 +3,14 @@ package org.darkestapp.money_exchange_rater.api.bittrex;
 import org.darkestapp.money_exchange_rater.api.bittrex.processors.BittrexObject;
 import org.darkestapp.money_exchange_rater.api.bittrex.util.BittrexCurrencyPair;
 import org.darkestapp.money_exchange_rater.api.money_converter.exceptions.ParseException;
+import org.darkestapp.money_exchange_rater.interfaces.CurrencyPair;
 import org.darkestapp.money_exchange_rater.interfaces.MoneyExchangeRaterException;
+import org.darkestapp.money_exchange_rater.util.CurrencyPairBuilder;
 import org.junit.Test;
 
-import static org.darkestapp.money_exchange_rater.api.bittrex.enums.BittrexCurrencyCode.*;
+import static org.darkestapp.money_exchange_rater.enums.PublicCurrencyCode.ARS;
+import static org.darkestapp.money_exchange_rater.enums.PublicCurrencyCode.BTC;
+import static org.darkestapp.money_exchange_rater.enums.PublicCurrencyCode.USDT;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.junit.Assert.*;
 
@@ -32,8 +36,8 @@ public class BittrexApiTest {
         BittrexObject result = bittrexApi.getApiObject(VALID_CURRENCY_PAIR);
         assertNotNull(result);
         assertEquals(VALID_CURRENCY_PAIR, result.getCurrencyPair());
-        assertThat(result.getBuyPrice().longValue(), greaterThan(0L));
-        assertThat(result.getSellPrice().longValue(), greaterThan(0L));
+        assertThat(result.getBuyPrice().doubleValue(), greaterThan(0.0));
+        assertThat(result.getSellPrice().doubleValue(), greaterThan(0.0));
         assertThat(result.getRequestTime().getTime(), greaterThan(0L));
     }
 
@@ -81,4 +85,14 @@ public class BittrexApiTest {
         bittrexApi.isCurrencyPairAllowed(null);
     }
 
+    @Test
+    public void currencyPairInterfaceAsArgumentTest() throws Exception {
+
+        CurrencyPair genericCurrencyPair = CurrencyPairBuilder.build(USDT, BTC);
+        BittrexObject result = bittrexApi.getApiObject(genericCurrencyPair);
+        assertNotNull(result);
+        assertThat(result.getBuyPrice().doubleValue(), greaterThan(0.0));
+        assertThat(result.getSellPrice().doubleValue(), greaterThan(0.0));
+        assertThat(result.getRequestTime().getTime(), greaterThan(0L));
+    }
 }

@@ -2,7 +2,7 @@ package org.darkestapp.money_exchange_rater.api.c_cex.enums;
 
 import org.darkestapp.money_exchange_rater.enums.PublicCurrencyCode;
 import org.darkestapp.money_exchange_rater.interfaces.CurrencyCode;
-import org.darkestapp.money_exchange_rater.interfaces.Supported;
+import org.darkestapp.money_exchange_rater.interfaces.annotations.Supported;
 
 /**
  * Created by Manuel Perez P. (darkpriestrelative@gmail.com) on 15/04/17.

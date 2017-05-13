@@ -32,4 +32,8 @@ public enum PublicCurrencyCode implements CurrencyData {
     public String getCode() {
         return code;
     }
+
+    public String getLowerCaseCode () {
+        return this.getCode().toLowerCase();
+    }
 }

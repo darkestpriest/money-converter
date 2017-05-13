@@ -1,6 +1,6 @@
 package org.darkestapp.money_exchange_rater.util;
 
-import org.darkestapp.money_exchange_rater.interfaces.Api;
+import org.darkestapp.money_exchange_rater.interfaces.annotations.Api;
 import org.darkestapp.money_exchange_rater.interfaces.ExchangeRaterApi;
 import org.darkestapp.money_exchange_rater.interfaces.MoneyExchangeRaterException;
 import org.reflections.Reflections;

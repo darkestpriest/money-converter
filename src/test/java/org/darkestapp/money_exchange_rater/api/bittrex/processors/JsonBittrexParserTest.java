@@ -4,8 +4,8 @@ import org.darkestapp.money_exchange_rater.api.bittrex.util.BittrexCurrencyPair;
 import org.darkestapp.money_exchange_rater.interfaces.MoneyExchangeRaterException;
 import org.junit.Test;
 
-import static org.darkestapp.money_exchange_rater.api.bittrex.enums.BittrexCurrencyCode.BTC;
-import static org.darkestapp.money_exchange_rater.api.bittrex.enums.BittrexCurrencyCode.USDT;
+import static org.darkestapp.money_exchange_rater.enums.PublicCurrencyCode.BTC;
+import static org.darkestapp.money_exchange_rater.enums.PublicCurrencyCode.USDT;
 import static org.hamcrest.number.OrderingComparison.greaterThan;
 import static org.junit.Assert.*;
 

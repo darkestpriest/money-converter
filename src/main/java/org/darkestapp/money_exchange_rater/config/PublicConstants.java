@@ -17,4 +17,5 @@ public class PublicConstants {
     public static final String API_INTERFACE_NAME = "ExchangeRaterApi";
     public static final String DEFAULT_USER_AGENT =
             "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0";
+    public static final String MARKET_PRICES_SEPARATOR = "-";
 }

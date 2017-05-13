@@ -4,12 +4,14 @@ import org.darkestapp.money_exchange_rater.api.c_cex.exceptions.CCexApiException
 import org.darkestapp.money_exchange_rater.api.c_cex.processors.CCexObject;
 import org.darkestapp.money_exchange_rater.api.c_cex.util.CCexCurrencyPair;
 import org.darkestapp.money_exchange_rater.api.money_converter.exceptions.ParseException;
+import org.darkestapp.money_exchange_rater.interfaces.CurrencyPair;
+import org.darkestapp.money_exchange_rater.util.CurrencyPairBuilder;
 import org.junit.Test;
 
-import static org.darkestapp.money_exchange_rater.api.c_cex.enums.CCexCurrencyCode.ARS;
-import static org.darkestapp.money_exchange_rater.api.c_cex.enums.CCexCurrencyCode.BTC;
-import static org.darkestapp.money_exchange_rater.api.c_cex.enums.CCexCurrencyCode.USD;
-import static org.hamcrest.number.OrderingComparison.greaterThan;
+import static org.darkestapp.money_exchange_rater.enums.PublicCurrencyCode.ARS;
+import static org.darkestapp.money_exchange_rater.enums.PublicCurrencyCode.BTC;
+import static org.darkestapp.money_exchange_rater.enums.PublicCurrencyCode.USD;
+import static org.hamcrest.Matchers.greaterThan;
 import static org.junit.Assert.*;
 
 /**
@@ -34,8 +36,8 @@ public class CCexApiTest {
         CCexObject result = cCexApi.getApiObject(VALID_CURRENCY_PAIR);
         assertNotNull(result);
         assertEquals(VALID_CURRENCY_PAIR, result.getCurrencyPair());
-        assertThat(result.getBuyPrice().longValue(), greaterThan(0L));
-        assertThat(result.getSellPrice().longValue(), greaterThan(0L));
+        assertThat(result.getBuyPrice().doubleValue(), greaterThan(0.0));
+        assertThat(result.getSellPrice().doubleValue(), greaterThan(0.0));
         assertThat(result.getRequestTime().getTime(), greaterThan(0L));
     }
 
@@ -83,4 +85,14 @@ public class CCexApiTest {
         cCexApi.isCurrencyPairAllowed(null);
     }
 
+    @Test
+    public void currencyPairInterfaceAsArgumentTest() throws Exception {
+
+        CurrencyPair genericCurrencyPair = CurrencyPairBuilder.build(BTC, USD);
+        CCexObject result = cCexApi.getApiObject(genericCurrencyPair);
+        assertNotNull(result);
+        assertThat(result.getBuyPrice().doubleValue(), greaterThan(0.0));
+        assertThat(result.getSellPrice().doubleValue(), greaterThan(0.0));
+        assertThat(result.getRequestTime().getTime(), greaterThan(0L));
+    }
 }

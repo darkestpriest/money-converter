@@ -1,15 +1,15 @@
 package org.darkestapp.money_exchange_rater;
 
-import org.darkestapp.money_exchange_rater.api.c_cex.util.CCexCurrencyPair;
-import org.darkestapp.money_exchange_rater.interfaces.ApiObject;
-import org.darkestapp.money_exchange_rater.interfaces.ExchangeRaterApi;
-import org.darkestapp.money_exchange_rater.interfaces.MoneyExchangeRaterException;
+import org.darkestapp.money_exchange_rater.interfaces.*;
+import org.darkestapp.money_exchange_rater.util.CurrencyPairBuilder;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Map;
 
-import static org.darkestapp.money_exchange_rater.api.c_cex.enums.CCexCurrencyCode.*;
+import static org.darkestapp.money_exchange_rater.enums.PublicCurrencyCode.ARS;
+import static org.darkestapp.money_exchange_rater.enums.PublicCurrencyCode.BTC;
+import static org.darkestapp.money_exchange_rater.enums.PublicCurrencyCode.USD;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.junit.Assert.*;
 
@@ -18,10 +18,10 @@ import static org.junit.Assert.*;
  */
 public class ApiManagerTest {
 
-    private static final CCexCurrencyPair VALID_CURRENCY_PAIR =
-            new CCexCurrencyPair(BTC, USD);
-    private static final CCexCurrencyPair INVALID_CURRENCY_PAIR =
-            new CCexCurrencyPair(ARS, USD);
+    private static final CurrencyPair VALID_CURRENCY_PAIR =
+            CurrencyPairBuilder.build(BTC,  USD);
+    private static final CurrencyPair INVALID_CURRENCY_PAIR =
+            CurrencyPairBuilder.build(ARS, USD);
     ApiManager apiManager;
 
     @Before

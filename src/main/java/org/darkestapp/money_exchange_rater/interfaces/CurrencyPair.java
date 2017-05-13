@@ -1,13 +1,15 @@
 package org.darkestapp.money_exchange_rater.interfaces;
 
+import org.darkestapp.money_exchange_rater.enums.PublicCurrencyCode;
+
 /**
  * Created by Manuel Perez P. (darkpriestrelative@gmail.com) on 15/04/17.
  */
-public interface CurrencyPair<C extends CurrencyCode> {
+public interface CurrencyPair {
 
-    C getCurrencyFrom();
+    PublicCurrencyCode getCurrencyFrom();
 
-    C getCurrencyTo();
+    PublicCurrencyCode getCurrencyTo();
 
     String getCurrenciesCodes();
 }

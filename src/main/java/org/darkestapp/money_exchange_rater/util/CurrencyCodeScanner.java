@@ -1,7 +1,7 @@
 package org.darkestapp.money_exchange_rater.util;
 
 import org.darkestapp.money_exchange_rater.interfaces.MoneyExchangeRaterException;
-import org.darkestapp.money_exchange_rater.interfaces.Supported;
+import org.darkestapp.money_exchange_rater.interfaces.annotations.Supported;
 import org.reflections.ReflectionUtils;
 
 import java.lang.annotation.Annotation;

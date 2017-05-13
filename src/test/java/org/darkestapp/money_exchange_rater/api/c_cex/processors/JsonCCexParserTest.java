@@ -4,9 +4,9 @@ import org.darkestapp.money_exchange_rater.api.c_cex.util.CCexCurrencyPair;
 import org.darkestapp.money_exchange_rater.interfaces.MoneyExchangeRaterException;
 import org.junit.Test;
 
-import static org.darkestapp.money_exchange_rater.api.c_cex.enums.CCexCurrencyCode.ARS;
-import static org.darkestapp.money_exchange_rater.api.c_cex.enums.CCexCurrencyCode.BTC;
-import static org.darkestapp.money_exchange_rater.api.c_cex.enums.CCexCurrencyCode.USD;
+import static org.darkestapp.money_exchange_rater.enums.PublicCurrencyCode.ARS;
+import static org.darkestapp.money_exchange_rater.enums.PublicCurrencyCode.BTC;
+import static org.darkestapp.money_exchange_rater.enums.PublicCurrencyCode.USD;
 import static org.hamcrest.number.OrderingComparison.greaterThan;
 import static org.junit.Assert.*;
 

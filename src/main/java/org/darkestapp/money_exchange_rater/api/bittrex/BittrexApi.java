@@ -1,5 +1,6 @@
 package org.darkestapp.money_exchange_rater.api.bittrex;
 
+import org.darkestapp.money_exchange_rater.interfaces.annotations.Api;
 import org.darkestapp.money_exchange_rater.api.bittrex.enums.BittrexCurrencyCode;
 import org.darkestapp.money_exchange_rater.api.bittrex.processors.BittrexObject;
 import org.darkestapp.money_exchange_rater.api.bittrex.processors.JsonBittrexParser;
@@ -10,8 +11,8 @@ import org.darkestapp.money_exchange_rater.interfaces.*;
  * Created by Manuel Perez P. (darkpriestrelative@gmail.com) on 28/04/17.
  */
 @Api(enabled = true)
-public class BittrexApi extends AbstractExchangeRaterApi<BittrexCurrencyPair, BittrexObject>
-        implements ExchangeRaterApi<BittrexCurrencyPair, BittrexObject> {
+public class BittrexApi extends AbstractExchangeRaterApi<BittrexObject>
+        implements ExchangeRaterApi<BittrexObject> {
 
     private static final String CONTEXT = BittrexApi.class.getSimpleName();
     private static final String API_SHORT_NAME = "BITT";
@@ -22,12 +23,12 @@ public class BittrexApi extends AbstractExchangeRaterApi<BittrexCurrencyPair, Bi
     }
 
     @Override
-    public BittrexObject getApiObject(final BittrexCurrencyPair currencyPair)
+    public BittrexObject getApiObject(final CurrencyPair currencyPair)
             throws MoneyExchangeRaterException {
 
         try {
             JsonBittrexParser parser = new JsonBittrexParser(BittrexApi.class);
-            return parser.getApiObject(currencyPair);
+            return parser.getApiObject(new BittrexCurrencyPair(currencyPair));
         } catch (MoneyExchangeRaterException e) {
             throw new MoneyExchangeRaterException(
                     "Error requesting the data",

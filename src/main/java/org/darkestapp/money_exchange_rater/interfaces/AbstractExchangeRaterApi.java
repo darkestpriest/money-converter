@@ -9,9 +9,8 @@ import java.util.List;
  * Created by Manuel Perez P. (darkpriestrelative@gmail.com) on 28/04/17.
  */
 public abstract class AbstractExchangeRaterApi
-        <C extends CurrencyPair,
-                O extends ApiObject>
-        implements ExchangeRaterApi<C, O> {
+        <O extends ApiObject>
+        implements ExchangeRaterApi<O> {
 
     private final String context;
     private final Class currencyCode;
@@ -22,7 +21,7 @@ public abstract class AbstractExchangeRaterApi
     }
 
     @Override
-    public boolean isCurrencyPairAllowed(final C currencyPair)
+    public boolean isCurrencyPairAllowed(final CurrencyPair currencyPair)
             throws MoneyExchangeRaterException {
 
         if(currencyPair == null) {
