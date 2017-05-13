@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import static org.darkestapp.money_exchange_rater.config.PublicConstants.DEFAULT_READ_TIMEOUT;
 import static org.darkestapp.money_exchange_rater.config.PublicConstants.DEFAULT_USER_AGENT;
 
 /**
@@ -36,6 +37,7 @@ public abstract class JsonParser<A extends ApiObject, C extends CurrencyPair> {
 
             URL url = new URL(stringURL);
             HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+            connection.setReadTimeout(DEFAULT_READ_TIMEOUT);
             connection.addRequestProperty("User-Agent", DEFAULT_USER_AGENT);
             if(connection == null) {
 
