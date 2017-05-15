@@ -33,14 +33,15 @@ The ```currencyPair``` object must contains the currency to rate, for example:
             Map<String, ExchangeRaterApi> apiMap = manager.getAvailableApiMap();
             CurrencyPair currencyPair = new BittrexCurrencyPair(USDT, BTC);
             ExchangeRaterApi api;
+
             for(Map.Entry<String, ExchangeRaterApi> entry : apiMap.entrySet()) {
                 api = entry.getValue();
                 if(api.getApiId().getShortName().equals("BITT")) {
                     System.out.println("Checking Bittrex API:");
-                    
+
                     //To get buy price
                     System.out.println(api.getBuyPrice());
-                    
+
                     //To get sell price
                     System.out.println(api.getSellPrice());
                 }
@@ -52,17 +53,17 @@ The ```currencyPair``` object must contains the currency to rate, for example:
    ```
 
 ## How to include in your app.
-The artifactc is hosted in jcenter, you need to include jcenter in your repositories sources. If you are using gradle, to include this library using the following lines:  
+The artifact is hosted in jcenter, you need to include jcenter in your repositories sources. If you are using gradle, to include this library using the following lines:
   
 ```Gradle
-    compile 'org.darkestapp.money-exchange-rater:money-exchange-rater:1.0.0'
+    compile 'org.darkestapp.money-exchange-rater:money-exchange-rater:1.0.1'
 ```
 For maven users, you can include in your pom file:
 ```Maven
 <dependency>
   <groupId>org.darkestapp.money-exchange-rater</groupId>
   <artifactId>money-exchange-rater</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <type>pom</type>
 </dependency>
 ```
