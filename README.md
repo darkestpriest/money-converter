@@ -31,19 +31,26 @@ The ```currencyPair``` object must contains the currency to rate, for example:
         try {
             ApiManager manager = new ApiManager();
             Map<String, ExchangeRaterApi> apiMap = manager.getAvailableApiMap();
-            CurrencyPair currencyPair = new BittrexCurrencyPair(USDT, BTC);
+            CurrencyPair currencyPair = CurrencyPairBuilder.build(
+                    PublicCurrencyCode.USDT,
+                    PublicCurrencyCode.BTC);
             ExchangeRaterApi api;
-
+            ApiObject apiObject;
             for(Map.Entry<String, ExchangeRaterApi> entry : apiMap.entrySet()) {
                 api = entry.getValue();
                 if(api.getApiId().getShortName().equals("BITT")) {
                     System.out.println("Checking Bittrex API:");
 
+                    apiObject = api.getApiObject(currencyPair);
+                    System.out.println(apiObject);
+
                     //To get buy price
-                    System.out.println(api.getBuyPrice());
+                    System.out.println("Buy price for " + currencyPair.getCurrenciesCodes() + "\n"
+                            + "\t" + apiObject.getBuyPrice());
 
                     //To get sell price
-                    System.out.println(api.getSellPrice());
+                    System.out.println("Sell price for " + currencyPair.getCurrenciesCodes() + "\n"
+                            + "\t" +apiObject.getSellPrice());
                 }
             }
         } catch (Exception e) {
