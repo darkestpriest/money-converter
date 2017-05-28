@@ -92,7 +92,7 @@ If you want to use this artifact in your Kotlin application, you can use the fol
             e.printStackTrace()
         }
     }
-    ```
+```
 
 ## How to include in your app.
 The artifact is hosted in jcenter, you need to include jcenter in your repositories sources. If you are using gradle, to include this library using the following lines:
