@@ -83,7 +83,7 @@ If you want to use this artifact in your Kotlin application, you can use the fol
 
                     //To get sell price
                     println("Sell price for " + currencyPair.currenciesCodes + "\n"
-                            + "\t" +apiObject.sellPrice)
+                            + "\t" + apiObject.sellPrice)
                 }
                 println(code)
             }
