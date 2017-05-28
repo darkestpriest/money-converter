@@ -59,6 +59,41 @@ The ```currencyPair``` object must contains the currency to rate, for example:
     }
    ```
 
+If you want to use this artifact in your Kotlin application, you can use the following lines as example:
+
+```Kotlin
+    fun main(args: Array<String>) {
+
+        try {
+            val manager = ApiManager()
+            val map = manager.availableApiMap
+            val currencyPair = CurrencyPairBuilder.build(
+                    PublicCurrencyCode.USDT,
+                    PublicCurrencyCode.BTC)
+            for((code, api) in map) {
+                if(api.apiId.shortName.equals("BITT")) {
+                    println("Checking Bittrex API:")
+
+                    val apiObject = api.getApiObject(currencyPair)
+                    println(apiObject)
+
+                    //To get buy price
+                    println("Buy price for " + currencyPair.currenciesCodes + "\n"
+                            + "\t" + apiObject.buyPrice)
+
+                    //To get sell price
+                    println("Sell price for " + currencyPair.currenciesCodes + "\n"
+                            + "\t" +apiObject.buyPrice)
+                }
+                println(code)
+            }
+        }
+        catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+    ```
+
 ## How to include in your app.
 The artifact is hosted in jcenter, you need to include jcenter in your repositories sources. If you are using gradle, to include this library using the following lines:
   
