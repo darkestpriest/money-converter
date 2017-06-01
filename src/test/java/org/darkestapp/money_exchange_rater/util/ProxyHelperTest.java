@@ -11,7 +11,7 @@ public class ProxyHelperTest {
     @Test
     public void configProxy() throws Exception {
 
-        ProxyHelper.configProxy(this.getClass(), "http://www.google.com");
+        ProxyHelper.configProxy(this.getClass().getSimpleName());
     }
 
 }
