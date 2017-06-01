@@ -98,14 +98,14 @@ If you want to use this artifact in your Kotlin application, you can use the fol
 The artifact is hosted in jcenter, you need to include jcenter in your repositories sources. If you are using gradle, to include this library using the following lines:
   
 ```Gradle
-    compile 'org.darkestapp.money-exchange-rater:money-exchange-rater:1.0.1'
+    compile 'org.darkestapp.money-exchange-rater:money-exchange-rater:1.0.2'
 ```
 For maven users, you can include in your pom file:
 ```Maven
 <dependency>
   <groupId>org.darkestapp.money-exchange-rater</groupId>
   <artifactId>money-exchange-rater</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <type>pom</type>
 </dependency>
 ```
