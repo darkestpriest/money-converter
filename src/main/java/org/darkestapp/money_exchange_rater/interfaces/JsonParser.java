@@ -1,5 +1,6 @@
 package org.darkestapp.money_exchange_rater.interfaces;
 
+import org.darkestapp.money_exchange_rater.util.ProxyHelper;
 import org.json.JSONObject;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -35,6 +36,7 @@ public abstract class JsonParser<A extends ApiObject, C extends CurrencyPair> {
 
         try {
 
+            ProxyHelper.configProxy(CONTEXT);
             URL url = new URL(stringURL);
             HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
             connection.setReadTimeout(DEFAULT_READ_TIMEOUT);
