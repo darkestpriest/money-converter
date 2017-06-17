@@ -14,7 +14,8 @@ public enum PublicCurrencyCode implements CurrencyData {
     IOP  ("IOP", "Internet of People"),
     LTC  ("LTC", "Litecoin"),
     USD  ("USD", "American Dollar"),
-    USDT ("USDT", "American Dollar");
+    USDT ("USDT", "American Dollar"),
+    NO   ("NO", "No value");
 
     private String friendlyName;
     private String code;
